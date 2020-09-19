@@ -7,7 +7,8 @@ interface NoteContextData {
   star: boolean;
   done: boolean;
   isTodo: boolean;
-  todos: Array<object>;
+  todos: JSON;
+  todoIdNote: number;
   resultCalc: number;
 
   setTitleFc(): void;
@@ -20,6 +21,7 @@ interface NoteContextData {
   setContextToInitial(): void;
   setResultCalc(): void;
   sortNotes(): void;
+  setTodoIdNoteFc(): void;
 }
 
 const NoteContext = createContext<NoteContextData>({} as NoteContextData);
@@ -32,6 +34,7 @@ export const NoteProvider: React.FC = ({children}) => {
   const [done, setDone] = useState(false);
   const [isTodo, setIsTodo] = useState(false);
   const [todos, setTodos] = useState([{titleTodo: '', complete: false}]);
+  const [todoIdNote, setTodoIdNote] = useState();
   const [resultCalc, setResultCalc] = useState('');
 
   const setTitleFc = (title) => {
@@ -55,6 +58,9 @@ export const NoteProvider: React.FC = ({children}) => {
   const setTodosFc = (todos) => {
     setTodos(todos);
   };
+  const setTodoIdNoteFc = (todos) => {
+    setTodoIdNote(todos);
+  };
 
   const sortNotes = (notes) => {};
 
@@ -64,7 +70,9 @@ export const NoteProvider: React.FC = ({children}) => {
     setStarFc(false);
     setDoneFc(false);
     setIsTodoFc(false);
+    setTodoIdNote();
     setTodos([{titleTodo: '', complete: false}]);
+    setTodoIdNote();
   };
   return (
     <>
@@ -77,6 +85,7 @@ export const NoteProvider: React.FC = ({children}) => {
           done,
           isTodo,
           todos,
+          todoIdNote,
           resultCalc,
           setTitleFc,
           setTextFc,
@@ -88,6 +97,7 @@ export const NoteProvider: React.FC = ({children}) => {
           setContextToInitial,
           setResultCalc,
           sortNotes,
+          setTodoIdNoteFc,
         }}>
         {children}
       </NoteContext.Provider>

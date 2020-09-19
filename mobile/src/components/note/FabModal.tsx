@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import {
   Text,
   View,
@@ -17,17 +17,42 @@ const ModalCenter = Dimensions.get('window').height / 2;
 import Feather from 'react-native-vector-icons/Feather';
 import Colors from '../../styles/Colors';
 
+import uuid from 'react-native-uuid';
+
 import NoteContext from '../../context/NoteCotext';
 
-const FabModal = () => {
+import api from '../../services/api';
+
+const FabModal = ({id, item, noteExist}) => {
   const [modalVisible, setModalVisible] = useState(false);
 
   const [titleTodo, setTitleTodo] = useState('');
+  const [arrayTodos, setArreyTodos] = useState();
 
-  const {todos, setTodosFc} = useContext(NoteContext);
+  const {todos, setTodosFc, setContextToInitial} = useContext(NoteContext);
 
   const onAddTodo = () => {
-    setTodosFc([...todos, {titleTodo}]);
+    if (titleTodo !== '') {
+      api
+        .post('todos', {
+          id: noteExist ? item.id : id,
+          titleTodo: titleTodo,
+          complete: false,
+        })
+        .then(async (response) => {
+          // await api.get(`todos?search=${id}`).then((response) => {
+          //   const note = response.data;
+          //   setModalVisible(!modalVisible);
+          //   setTodosFc(note);
+          //   setTitleTodo('');
+          //   console.log(id);
+          // });
+          setTitleTodo('');
+          setModalVisible(!modalVisible);
+        });
+    } else {
+      alert('Preencha o titulo do todo');
+    }
   };
 
   return (
@@ -50,9 +75,7 @@ const FabModal = () => {
             <KeyboardAvoidingView
               style={{flexDirection: 'row'}}
               behavior={Platform.OS == 'ios' ? 'padding' : 'height'}>
-              <TouchableOpacity
-                style={styles.buttonsModal}
-                onPress={() => onAddTodo}>
+              <TouchableOpacity style={styles.buttonsModal} onPress={onAddTodo}>
                 <Text style={styles.textButton}>Add</Text>
               </TouchableOpacity>
               <TouchableOpacity

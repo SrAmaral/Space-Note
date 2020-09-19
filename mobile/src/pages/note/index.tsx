@@ -6,7 +6,7 @@ import TextNote from '../../components/note/TextNote';
 import TodoNote from '../../components/note/TodoNote';
 
 const Note: React.FC = ({route, navigation}) => {
-  const {text, item, noteExist, resultCalc, calcImport} = route.params;
+  const {text, item, noteExist, resultCalc, calcImport, id} = route.params;
   return (
     <>
       <HeaderNote
@@ -23,7 +23,7 @@ const Note: React.FC = ({route, navigation}) => {
           calcImport={calcImport}
         />
       )}
-      {!text && <TodoNote item={item} noteExist={noteExist} />}
+      {!text && <TodoNote itemNote={item} id={id} noteExist={noteExist} />}
     </>
   );
 };

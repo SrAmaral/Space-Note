@@ -8,25 +8,26 @@ interface TodosItem {
 }
 
   export const index = async (request: Request, response: Response) => {
-    
-      const notes = await db ('notes')
-      return response.json(notes);
-    
-    
-  }
-  export const indexSpecific = async (request: Request, response: Response) => {
     const filters = request.query;
-    const id = request.params;
 
     const search = filters.search as string;
 
-  
-    const notes = await db ('notes')
-    .where('notes.id', '=', search)
-    .select(['notes.*']);
+    if(!filters.search){
+      const notes = await db ('notes')
+      
+      return response.json(notes);
+    }else{
+      const notes = await db ('notes')
+      .where('notes.id', '=', search)
+      .select(['notes.*']);
 
-    return response.json(notes);
+      
+
+      return response.json(notes);
+    }
+    
   }
+
 
  export const create = async (request: Request, response: Response) => {
     const {
@@ -51,9 +52,10 @@ interface TodosItem {
         star,
         done,
         isTodo,
+        todos,
       });
     
-      // const note_Id = insertedNotesIds[0];
+       const note_Id = insertedNotesIds[0];
     
       // const todosList = todos.map((todosItem: TodosItem) => {
       //   return {
@@ -67,11 +69,15 @@ interface TodosItem {
     
        await trx.commit();
     
-      return response.status(201).json({title,
+      return response.status(201).json({
+        note_Id,
+        title,
         text,
         star,
         done,
-        isTodo});
+        isTodo,
+        todos
+      });
   
     }catch (err) {
       console.log(err)

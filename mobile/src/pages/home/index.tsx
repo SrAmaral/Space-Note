@@ -2,14 +2,14 @@ import React from 'react';
 import {StyleSheet} from 'react-native';
 import HeaderHome from '../../components/home/Header';
 import NoteList from '../../components/home/NoteList';
-import FabButton from '../../components/home/FabButton';
+import FabButton from '../../components/home/FabGroup';
 
 const Home: React.FC = ({navigation}) => {
   return (
     <>
       <HeaderHome />
       <NoteList navigation={navigation} />
-      <FabButton style={{bottom: 80, right: 60}} navigation={navigation} />
+      <FabButton navigation={navigation} />
     </>
   );
 };

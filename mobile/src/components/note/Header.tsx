@@ -21,6 +21,8 @@ const HeaderNote: React.FC = ({isTodoParam, navigation, item, noteExist}) => {
     done,
     isTodo,
     todos,
+    todoIdNote,
+    setTodoIdNoteFc,
     setStarFc,
     setDoneFc,
     setIsTodoFc,
@@ -48,46 +50,82 @@ const HeaderNote: React.FC = ({isTodoParam, navigation, item, noteExist}) => {
   };
 
   const onSave = () => {
-    if (!noteExist) {
-      if (title !== '' && text !== '') {
+    if (text) {
+      if (!noteExist) {
+        if (title !== '' && text !== '') {
+          api
+            .post('notes', {
+              title,
+              text,
+              star,
+              done,
+              isTodo,
+            })
+            .then(() => {
+              alert(`A nota ${title} foi criada`);
+              navigation.navigate('Home');
+              setContextToInitial();
+            });
+        } else {
+          alert('Preencha todos os campos');
+        }
+      }
+
+      if (noteExist) {
+        if (title !== '' && text !== '') {
+          api
+            .put(`notes/${item.id}`, {
+              title,
+              text,
+              star,
+              done,
+              isTodo,
+              create_at: item.create_at,
+            })
+            .then(() => {
+              alert(`A nota ${title} foi alterada`);
+              navigation.goBack();
+              setContextToInitial();
+            });
+        } else {
+          alert('Preencha todos os campos');
+        }
+      }
+    }
+    if (!text) {
+      if (title !== '') {
         api
-          .post('notes', {
+          .put(`notes/${noteExist ? item.id : todoIdNote}`, {
             title,
-            text,
             star,
             done,
             isTodo,
-            todos,
           })
           .then(() => {
-            alert(`A nota ${title} foi criada`);
+            if (!noteExist) {
+              alert(`A nota ${title} foi criada`);
+            }
+            if (noteExist) {
+              alert(`A nota ${title} foi alterada!`);
+            }
             navigation.navigate('Home');
             setContextToInitial();
           });
       } else {
-        alert('Preencha todos os campos');
+        alert('Preencha o titulo da nota');
       }
     }
-    if (noteExist) {
-      if (title !== '' && text !== '') {
-        api
-          .put(`notes/${item.id}`, {
-            title,
-            text,
-            star,
-            done,
-            isTodo,
-            create_at: item.create_at,
-          })
-          .then(() => {
-            alert(`A nota ${title} foi alterada`);
-            navigation.goBack();
-            setContextToInitial();
-          });
-      } else {
-        alert('Preencha todos os campos');
-      }
-    }
+  };
+
+  const deleteAllNotes = () => {
+    api.delete(`notes/${item.id}`).then(() => {
+      alert(`A nota ${title} foi deletada`);
+    });
+    api.delete(`todos/${item.id}`).then(() => {
+      alert(`A nota ${title} foi deletada`);
+      navigation.navigate('Home');
+      setContextToInitial();
+    });
   };
 
   const onDelete = () => {
@@ -99,11 +137,8 @@ const HeaderNote: React.FC = ({isTodoParam, navigation, item, noteExist}) => {
           {
             text: 'OK',
             onPress: () => {
-              api.delete(`notes/${item.id}`).then(() => {
-                alert(`A nota ${title} foi deletada`);
-                navigation.goBack();
-                setContextToInitial();
-              });
+              deleteAllNotes();
+              setContextToInitial();
             },
           },
 

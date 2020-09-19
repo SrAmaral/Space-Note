@@ -7,25 +7,65 @@ import {Checkbox} from 'react-native-paper';
 import FabModal from './FabModal';
 import NoteContext from '../../context/NoteCotext';
 
-const TodoNote = () => {
+import api from '../../services/api';
+
+const TodoNote = ({id, noteExist, itemNote}) => {
   const [checked, setChecked] = useState(false);
   const [titleNote, setTitleNote] = useState('');
   const [todoNote, setTodoNote] = useState();
-  const {id, title, text, star, done, isTodo, todos} = useContext(NoteContext);
-  useEffect(() => {
-    setTodoNote(todos);
-    console.log(todoNote);
-  }, []);
+  const {
+    title,
+    text,
+    star,
+    done,
+    isTodo,
+    todos,
+    setTodosFc,
+    setTitleFc,
+    setTodoIdNoteFc,
+  } = useContext(NoteContext);
 
+  useEffect(() => {
+    getTodos();
+    setTodoIdNoteFc(id);
+  }, [todoNote]);
+
+  const getTodos = async () => {
+    if (!noteExist) {
+      await api.get(`todos?search=${id}`).then((response) => {
+        const todo = response.data;
+
+        setTodoNote(todo);
+        setTodosFc(todo);
+      });
+    }
+    if (noteExist) {
+      await api.get(`todos?search=${itemNote.id}`).then((response) => {
+        const todo = response.data;
+
+        setTodoNote(todo);
+        setTodosFc(todo);
+      });
+    }
+  };
+
+  const onComplete = (item) => {
+    api
+      .put(`todos/${item.id}`, {
+        titleTodo: item.titleTodo,
+        complete: !item.complete,
+      })
+      .then((response) => {});
+  };
   return (
     <View style={styles.container}>
       <TextInput
         style={styles.title}
         placeholder="Title Here"
         placeholderTextColor={Colors.darkGrey}
-        value={titleNote}
+        value={title}
         onChangeText={(text) => {
-          setTitleNote(text);
+          setTitleFc(text);
         }}
       />
       <View style={styles.todo}>
@@ -35,18 +75,18 @@ const TodoNote = () => {
           renderItem={({item}) => (
             <View style={{flexDirection: 'row', alignItems: 'center'}}>
               <Checkbox
-                status={item.check ? 'checked' : 'unchecked'}
+                status={item.complete ? 'checked' : 'unchecked'}
                 color={Colors.purple}
                 uncheckedColor={Colors.lightGrey}
-                onPress={() => {}}
+                onPress={() => onComplete(item)}
               />
 
-              <Text style={styles.titleTodo}>{item.title}</Text>
+              <Text style={styles.titleTodo}>{item.titleTodo}</Text>
             </View>
           )}
         />
       </View>
-      <FabModal />
+      <FabModal id={id} item={itemNote} noteExist={noteExist} />
     </View>
   );
 };

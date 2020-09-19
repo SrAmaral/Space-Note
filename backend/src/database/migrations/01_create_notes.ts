@@ -8,6 +8,7 @@ export async function up(knex: Knex){
     table.boolean('star').notNullable();
     table.boolean('done').notNullable();
     table.boolean('isTodo').notNullable();
+    table.json('todos');
     table.timestamp('create_at').defaultTo(knex.raw('CURRENT_TIMESTAMP'))
     .notNullable();
 
