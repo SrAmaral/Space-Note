@@ -12,7 +12,7 @@
 
 | Criar notas de textos | Criar notas todo | Calculadora | Editar notas | Deletar notas  |
 |--|--|--|--|--|
-| ![Notas de texto](https://github.com/SrAmaral/Space-Note/blob/SpaceNote-with-todo-note/readme_src/20200921_193324.gif) | ![Notas de texto](https://github.com/SrAmaral/Space-Note/blob/SpaceNote-with-todo-note/readme_src/20200921_193324.gif) | ![Notas de todo](https://github.com/SrAmaral/Space-Note/blob/SpaceNote-with-todo-note/readme_src/20200921_193551.gif) | ![editar notas](https://github.com/SrAmaral/Space-Note/blob/SpaceNote-with-todo-note/readme_src/20200921_194940.gif) | ![editar notas](https://github.com/SrAmaral/Space-Note/blob/SpaceNote-with-todo-note/readme_src/20200921_195320.gif) |
+| ![Notas de texto](https://github.com/SrAmaral/Space-Note/blob/SpaceNote-with-todo-note/readme_src/20200921_193324.gif) | ![Notas de todo](https://github.com/SrAmaral/Space-Note/blob/SpaceNote-with-todo-note/readme_src/20200921_193551.gif) | ![Calculadora](https://github.com/SrAmaral/Space-Note/blob/SpaceNote-with-todo-note/readme_src/20200921_194416.gif) | ![editar notas](https://github.com/SrAmaral/Space-Note/blob/SpaceNote-with-todo-note/readme_src/20200921_194940.gif) | ![editar notas](https://github.com/SrAmaral/Space-Note/blob/SpaceNote-with-todo-note/readme_src/20200921_195320.gif) |
 
 
 ## Próximos recursos
