@@ -1,9 +1,8 @@
 import React, {useContext, useEffect, useState} from 'react';
-import {StyleSheet, Text, View, FlatList} from 'react-native';
+import {StyleSheet, Text, View, FlatList, TouchableOpacity} from 'react-native';
 
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Colors from '../../styles/Colors';
-import {TouchableWithoutFeedback} from 'react-native-gesture-handler';
 
 import NoteContext from '../../context/NoteCotext';
 
@@ -149,7 +148,7 @@ const Calc: React.FC = () => {
           numColumns={4}
           extraData={buttonsLabels}
           renderItem={({item}) => (
-            <TouchableWithoutFeedback
+            <TouchableOpacity
               onPress={() => calcFunction(item)}
               style={[styles.button, {backgroundColor: item.color}]}>
               {item.label !== 'backspace' && (
@@ -162,7 +161,7 @@ const Calc: React.FC = () => {
                   color={Colors.white}
                 />
               )}
-            </TouchableWithoutFeedback>
+            </TouchableOpacity>
           )}
         />
       </View>
