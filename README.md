@@ -1,6 +1,11 @@
+
 # Space-Note 
 
 **Space-Note** é um projeto de bloco de notas pessoal, pensado em integrar ferramentas de produtividade, afim de centralizar funcionalidades e facilitar a criação de textos e listas.
+
+O projeto está sedo desenvolvido com proposito de meu aprendizado e aprimoramento, nas tecnologias react native, typescript, nodejs, api e banco de dados.
+
+ O projeto tem como foco, aprendizado e aprimoramento nestas tecnologias, resultando assim em um produto funcional e aberto, afim de fomentar novos interessados nestas tecnologias, mas também, oferecer um produto e serviço para possíveis usuários. Sendo assim, novas funcionalidades serão acrescentadas e disponibilizadas com o decorrer de seu desenvolvimento, assim como sua documentação.
 
 ## Layout App
 
@@ -19,11 +24,11 @@
 
  - Ferramentas de filtragem de notas na página inicial.
  - Busca de notas específicas na pagina inicial.
- - calendário, podendo associar notas com datas do calendário.
- - notificações e lembrete.
- - cadastro de usuário.
- - compartilhamento de notas entre usuários.
- - criação de eventos no calendário.
+ - Calendário, podendo associar notas com datas do calendário.
+ - Notificações e lembrete.
+ - Cadastro de usuário.
+ - Compartilhamento de notas entre usuários.
+ - Criação de eventos no calendário.
 
 ## Tecnologias utilizadas
 
@@ -37,6 +42,17 @@
   
  **sqlite3**
  - > banco de dados
+ 
+ **Funcionalidades atuais**
+ 
+ - Rotas da api
+ - Funcionalidades CRUD(Create, Read, Update e Delete)
+ - Api disponível acessível para o app
+
+ 
+
+
+  
 
 ## **Front-end**
 
@@ -45,3 +61,10 @@
  **axios**
  > utilizado para consumir a api no front-end
 
+**Funcionalidades atuais**
+ 
+
+ - Navegação entre notas
+ - Criação, Edição e Exclusão de notas
+ - Calculadora funcional, podendo migrar seus resultados para uma nova nota
+ - Navegação entre telas
