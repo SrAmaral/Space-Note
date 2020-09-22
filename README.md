@@ -30,7 +30,7 @@
 ## **Back-end**
 
  **nodejs:**
-  >utilizado para criar a api e suas regras de negoc
+  >utilizado para criar a api e suas regras de negocio
  
   **knex** 
   > utilizado como query builder, para comunicação com o banco de dados e criação de tabelas com migrations.
@@ -43,5 +43,5 @@
   **react navigate(stack, tab-bar)**
   
  **axios**
- > utilizado para consumir a api
+ > utilizado para consumir a api no front-end
 
