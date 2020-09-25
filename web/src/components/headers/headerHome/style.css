@@ -1,0 +1,48 @@
+#header-home {
+  background-color: #1C1C1C;
+  width: 100vw;
+  height: 20vh;
+  display: flex;
+  flex-direction: row;
+
+}
+
+.filter-notes {
+  display: flex;
+  flex: 1;
+
+  justify-content: center;
+  align-items: center;
+
+  
+}
+
+.button-filter {
+  cursor: pointer;
+}
+
+.filter-notes img{
+  height: 2.5rem;
+}
+
+.name-app {
+  display: flex;
+  flex: 3;
+
+  justify-content: center;
+  align-items: center;
+
+  color: #ECF0F1;
+}
+
+.group-header {
+  display: flex;
+  flex: 1;
+}
+
+.group-header img{
+  cursor: pointer;
+}
+.group-header img:first-child {
+  margin-right: 6rem;
+}

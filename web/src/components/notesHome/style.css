@@ -1,0 +1,58 @@
+#notes-home {
+  width: 100vw;
+  height: 80vh;
+}
+
+.cards {
+  margin: 0 5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr ;
+}
+
+.card-note {
+  width: 15rem;
+  height: 15rem;
+  background-color: #262626;
+
+  border-radius: 1.3rem;
+
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5rem;
+
+  cursor: pointer;
+
+}
+
+.card-note:hover{
+  border:  2px solid #6C5CE7;
+}
+
+.star {
+  flex: 1;
+}
+
+.star img {
+  margin: 1rem 0 0 1rem;
+}
+
+.title {
+  display: flex;
+  flex: 1;
+  
+  align-items: center;
+  justify-content: center;
+
+  color: #ECF0F1 ;
+  font-size: 2rem;
+}
+
+.group-card {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0 1rem 0 1rem;
+}
+
