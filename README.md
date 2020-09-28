@@ -56,6 +56,10 @@ O projeto está sedo desenvolvido com proposito de meu aprendizado e aprimoramen
 
 ## **Front-end**
   
+  **react.js**
+
+  **react context api**
+
   **react native**
   
   **react navigate(stack, tab-bar)**

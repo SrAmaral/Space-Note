@@ -6,6 +6,9 @@ import StarFillImg from '../../assets/images/icons/starFill.svg'
 import StarStrokeImg from '../../assets/images/icons/starStroke.svg'
 import ListImg from '../../assets/images/icons/list.svg'
 import DoneImg from '../../assets/images/icons/check.svg'
+import PlusImg from '../../assets/images/icons/plus.svg'
+
+import FabHome from '../fabHome'
 
 function NotesHome() {
   const [notes, setNotes] = useState([
@@ -13,8 +16,29 @@ function NotesHome() {
       id: 1,
       title: 'Nota1',
       star: true,
-      done: true,
+      done: false,
       isTodo: true,
+    },
+    {
+      id: 2,
+      title: 'Nota2',
+      star: true,
+      done: true,
+      isTodo: false,
+    },
+    {
+      id: 3,
+      title: 'Nota3',
+      star: false,
+      done: false,
+      isTodo: true,
+    },
+    {
+      id: 1,
+      title: 'Nota1',
+      star: false,
+      done: false,
+      isTodo: false,
     },
     {
       id: 2,
@@ -27,34 +51,13 @@ function NotesHome() {
       id: 3,
       title: 'Nota3',
       star: true,
-      done: true,
+      done: false,
       isTodo: true,
     },
     {
       id: 1,
       title: 'Nota1',
-      star: true,
-      done: true,
-      isTodo: true,
-    },
-    {
-      id: 2,
-      title: 'Nota2',
-      star: true,
-      done: true,
-      isTodo: true,
-    },
-    {
-      id: 3,
-      title: 'Nota3',
-      star: true,
-      done: true,
-      isTodo: true,
-    },
-    {
-      id: 1,
-      title: 'Nota1',
-      star: true,
+      star: false,
       done: true,
       isTodo: true,
     },
@@ -81,8 +84,8 @@ function NotesHome() {
         {notes.map ((item) => (
           <div className="card-note">
 
-            <div className="star">
-              <img src={StarFillImg} alt="star" className="star"/>
+             <div className="star">
+              <img src={item.star? StarFillImg : StarStrokeImg} alt="star" className="star"/>
             </div>
 
             <div className="title">
@@ -90,12 +93,13 @@ function NotesHome() {
             </div>
 
             <div className="group-card">
-              <img src={ListImg} alt="todo"/>
-              <img src={DoneImg} alt="done"/>
+              {item.isTodo && (<img src={ListImg} alt="todo"/>)}
+              {item.done && (<img src={DoneImg} alt="done"/>)}
             </div>
           </div>
         ))}
       </div>
+      <FabHome />
     </div>
   )
 }

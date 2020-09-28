@@ -1,6 +1,6 @@
 #notes-home {
-  width: 100vw;
-  height: 80vh;
+  flex: 1;
+  background-color: #1C1C1C;
 }
 
 .cards {
@@ -54,5 +54,25 @@
   flex-direction: row;
   justify-content: space-between;
   margin: 0 1rem 0 1rem;
+}
+
+.add-button {
+  display: flex;
+  position: fixed;
+  width: 5rem;
+  height: 5rem;
+  background-color: #6C5CE7;
+
+  top: 80vh;
+  right: 10vh;
+
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 2.5rem;  
+}
+
+.add-button img {
+  height: 2rem;
 }
 

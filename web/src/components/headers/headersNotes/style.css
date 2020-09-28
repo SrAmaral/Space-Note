@@ -1,0 +1,54 @@
+#header-note {
+  background-color: #1C1C1C;
+  height: 20vh;
+  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 5vh 0;
+
+  color: #fff;
+}
+
+.save-button {
+  display: flex;
+  flex: 1;
+
+  flex-direction: row;
+  align-items: center;
+}
+
+.save-button img {
+  margin-right: 2rem;
+}
+
+.save-button p {
+  font-size: 1.8rem;
+  color: #6C5CE7;
+}
+
+.group-buttons {
+  display: flex;
+  flex: 1;
+  
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+
+}
+.group-buttons img {
+  margin-right: 3rem;
+}
+
+.group-buttons p {
+  font-size: 1.8rem;
+  color: #6C5CE7;
+  
+}
+
+.cancel {
+  text-decoration: none;
+}
+
+
