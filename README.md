@@ -2,12 +2,17 @@
 
 **Space-Note** é um projeto de bloco de notas pessoal, pensado em integrar ferramentas de produtividade, afim de centralizar funcionalidades e facilitar a criação de textos e listas.
 
+## Layout App
+
+
+
+
 ## Recursos atuais
 
 
 | Home | Create | Text Note | Todo Note | 
 |--|--|--|--|
-| ![Home](https://github.com/SrAmaral/Space-Note/blob/Create-pages-notes-web-app/readme_src/web1.png) | ![Button Create](https://github.com/SrAmaral/Space-Note/blob/Create-pages-notes-web-app/readme_src/web3.png) | ![Text Note](https://github.com/SrAmaral/Space-Note/blob/Create-pages-notes-web-app/readme_src/web 2.png) | ![Todo Note](https://github.com/SrAmaral/Space-Note/blob/Create-pages-notes-web-app/readme_src/web4.png) |
+| ![Home](https://github.com/SrAmaral/Space-Note/blob/Create-pages-notes-web-app/readme_src/web1.png) | ![Button Create](https://github.com/SrAmaral/Space-Note/blob/Create-pages-notes-web-app/readme_src/web3.png) | ![Text Note](https://github.com/SrAmaral/Space-Note/blob/Create-pages-notes-web-app/readme_src/web%202.png) | ![Todo Note](https://github.com/SrAmaral/Space-Note/blob/Create-pages-notes-web-app/readme_src/web4.png) |
 
 
 ## Próximos recursos
