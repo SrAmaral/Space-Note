@@ -2,6 +2,10 @@
 
 **Space-Note** é um projeto de bloco de notas pessoal, pensado em integrar ferramentas de produtividade, afim de centralizar funcionalidades e facilitar a criação de textos e listas.
 
+## Ultimas Funcionalidades adicionadas
+
+  - App versão web: somente leitura de notas até o momento.
+
 ## Layout App
 
 

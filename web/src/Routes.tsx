@@ -9,7 +9,8 @@ function Routes() {
   return(
     <BrowserRouter>
       <Route path="/" exact component={Home} />
-      <Route path="/TextNote" component={TextNote} />
+      <Route path="/TextNote" exact component={TextNote} />
+      <Route path="/TextNote/:id" exact component={TextNote} />
       <Route path="/TodoNote" component={TodoNote} />
     </BrowserRouter>
   )

@@ -7,7 +7,9 @@
   margin: 0 5rem;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr ;
+  text-decoration: none;
 }
+
 
 .card-note {
   width: 15rem;
@@ -54,6 +56,7 @@
   flex-direction: row;
   justify-content: space-between;
   margin: 0 1rem 0 1rem;
+  font-size: 0;
 }
 
 .add-button {

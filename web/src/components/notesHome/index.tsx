@@ -1,4 +1,6 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+
+import {useHistory} from 'react-router-dom';
 
 import './style.css'
 
@@ -10,93 +12,64 @@ import PlusImg from '../../assets/images/icons/plus.svg'
 
 import FabHome from '../fabHome'
 
+import api from '../../api'
+import { Link } from 'react-router-dom'
+
+interface Note{
+  id: number;
+  title: string;
+  text: string;
+  star: boolean;
+  done: boolean;
+  isTodo: boolean;
+}
+
 function NotesHome() {
-  const [notes, setNotes] = useState([
-    {
-      id: 1,
-      title: 'Nota1',
-      star: true,
-      done: false,
-      isTodo: true,
-    },
-    {
-      id: 2,
-      title: 'Nota2',
-      star: true,
-      done: true,
-      isTodo: false,
-    },
-    {
-      id: 3,
-      title: 'Nota3',
-      star: false,
-      done: false,
-      isTodo: true,
-    },
-    {
-      id: 1,
-      title: 'Nota1',
-      star: false,
-      done: false,
-      isTodo: false,
-    },
-    {
-      id: 2,
-      title: 'Nota2',
-      star: true,
-      done: true,
-      isTodo: true,
-    },
-    {
-      id: 3,
-      title: 'Nota3',
-      star: true,
-      done: false,
-      isTodo: true,
-    },
-    {
-      id: 1,
-      title: 'Nota1',
-      star: false,
-      done: true,
-      isTodo: true,
-    },
-    {
-      id: 2,
-      title: 'Nota2',
-      star: true,
-      done: true,
-      isTodo: true,
-    },
-    {
-      id: 3,
-      title: 'Nota3',
-      star: true,
-      done: true,
-      isTodo: true,
+  const [notes, setNotes] = useState([{id: 0, title: '', text: '', star: true, done: true, isTodo: true }])
+  let history = useHistory();
+
+  
+  useEffect(() => {
+    
+      api.get('notes').then((response) => {
+        const note = response.data;
+
+        setNotes(note);
+      })
+    
+  }, [notes]);
+
+
+  function openNote (item: any){
+    if(!item.isTodo){
+      history.push(`/textNote/${item.id}`)
+    }else{
+      history.push(`/textTodo/${item.id}
     }
-  ])
+  }
   
   return (
     <div id="notes-home">
       <div className="cards">
         
         {notes.map ((item) => (
-          <div className="card-note">
+          
+            <div key={item.id} className="card-note" onClick={() => openNote(item)}>
 
-             <div className="star">
-              <img src={item.star? StarFillImg : StarStrokeImg} alt="star" className="star"/>
-            </div>
+              <div className="star">
+                <img src={item.star? StarStrokeImg : StarFillImg} alt="star" className="star"/>
+              </div>
 
-            <div className="title">
-              <strong>{item.title}</strong>
-            </div>
+              <div className="title">
+                <strong>{item.title}</strong>
+              </div>
 
-            <div className="group-card">
-              {item.isTodo && (<img src={ListImg} alt="todo"/>)}
-              {item.done && (<img src={DoneImg} alt="done"/>)}
+              <div className="group-card">
+                {item.isTodo && (<img src={ListImg} alt="todo"/>)  }
+                {item.done && (<img src={DoneImg} alt="done"/>)}
+              </div>
             </div>
-          </div>
+          
         ))}
       </div>
       <FabHome />

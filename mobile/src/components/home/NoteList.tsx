@@ -23,7 +23,13 @@ const NotesList: React.FC = ({navigation}) => {
   const [notes, setNotes] = useState();
 
   useEffect(() => {
-    bd();
+    
+      api.get('notes').then((response) => {
+        const note = response.data;
+
+        setNotes(note);
+      })
+    
   }, [notes]);
 
   const openNote = (item: itemNote) => {
@@ -36,13 +42,7 @@ const NotesList: React.FC = ({navigation}) => {
     navigation.navigate('Note', {text: text, item: item, noteExist: true});
   };
 
-  const bd = async () => {
-    await api.get('notes').then((response) => {
-      const note = response.data;
-
-      setNotes(note);
-    });
-  };
+ 
   return (
     <View style={styles.container}>
       <FlatList

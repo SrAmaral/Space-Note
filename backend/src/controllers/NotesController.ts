@@ -22,7 +22,7 @@ interface TodosItem {
       .select(['notes.*']);
 
       
-
+	
       return response.json(notes);
     }
     
