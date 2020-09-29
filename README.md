@@ -1,6 +1,6 @@
 
 ## Last Branch
- -- create-pages-notes-weba-app
+ create-pages-notes-weba-app (com versão web funcional para leitura)
 
 # Space-Note
 
